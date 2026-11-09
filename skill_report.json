@@ -1,0 +1,112 @@
+{
+  "skills": [
+    {
+      "name": "csv-profile",
+      "has_scripts": true,
+      "uses_mcp": false
+    },
+    {
+      "name": "fetch-issue",
+      "has_scripts": false,
+      "uses_mcp": true
+    },
+    {
+      "name": "project-checklist",
+      "has_scripts": false,
+      "uses_mcp": true
+    },
+    {
+      "name": "review-diff",
+      "has_scripts": true,
+      "uses_mcp": false
+    },
+    {
+      "name": "run-tests",
+      "has_scripts": false,
+      "uses_mcp": false
+    }
+  ],
+  "catalog_tokens": 160,
+  "full_tokens": 1768,
+  "disclosure_ratio": 11.05,
+  "trials": [
+    {
+      "query": "帮我跑一下测试",
+      "expected": "run-tests",
+      "hit": "run-tests",
+      "ok": true,
+      "body_loads": 1,
+      "model_requests": 2
+    },
+    {
+      "query": "测一下：只跑单元测试",
+      "expected": "run-tests",
+      "hit": "run-tests",
+      "ok": true,
+      "body_loads": 1,
+      "model_requests": 2
+    },
+    {
+      "query": "把这段 diff 审一遍",
+      "expected": "review-diff",
+      "hit": "review-diff",
+      "ok": true,
+      "body_loads": 1,
+      "model_requests": 2
+    },
+    {
+      "query": "请审查代码改动：只看 README.md",
+      "expected": "review-diff",
+      "hit": "review-diff",
+      "ok": true,
+      "body_loads": 1,
+      "model_requests": 2
+    },
+    {
+      "query": "获取 GitHub Issue：octocat/Hello-World #1",
+      "expected": "fetch-issue",
+      "hit": "fetch-issue",
+      "ok": true,
+      "body_loads": 1,
+      "model_requests": 2
+    },
+    {
+      "query": "帮我看一下 Issue：octocat/Hello-World #1",
+      "expected": "fetch-issue",
+      "hit": "fetch-issue",
+      "ok": true,
+      "body_loads": 1,
+      "model_requests": 2
+    },
+    {
+      "query": "今天天气怎么样",
+      "expected": null,
+      "hit": null,
+      "ok": true,
+      "body_loads": 0,
+      "model_requests": 1
+    },
+    {
+      "query": "不要跑测试，只解释测试覆盖率是什么",
+      "expected": null,
+      "hit": null,
+      "ok": true,
+      "body_loads": 0,
+      "model_requests": 1
+    }
+  ],
+  "false_positive": 0,
+  "disabled_trial": {
+    "query": "帮我跑一下测试",
+    "expected": null,
+    "hit": null,
+    "ok": true,
+    "body_loads": 0,
+    "model_requests": 1
+  },
+  "tokenizer": {
+    "source": "DeepSeek 官方 V4 离线分词器",
+    "sha256": "89085f12ef79460ac5f66d1119325ddfc694b4ab209d80bbd81d35f081dc9614"
+  },
+  "measurement": "计数仅包含技能目录与正文。触发验收以离线模型替身请求现有 read 工具，实跑生产路径。"
+}

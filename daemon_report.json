@@ -1,0 +1,22 @@
+{
+  "resume_from_step": 4,
+  "resume_step": 4,
+  "steps_total": 4,
+  "notify_fired": true,
+  "idempotent": true,
+  "before_kill_steps": [
+    1,
+    2,
+    3
+  ],
+  "after_resume_steps": [
+    4
+  ],
+  "notification_count": 1,
+  "forced_exit_code": 1,
+  "disabled_trial": {
+    "ENABLE_DAEMON": "0",
+    "ok": true
+  },
+  "measurement": "实际启动独立进程并强制结束，重启验证第四步与完成事件。桌面应用以原生消息框显示该事件。"
+}

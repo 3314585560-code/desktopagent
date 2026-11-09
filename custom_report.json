@@ -1,0 +1,56 @@
+{
+  "agents_md": {
+    "found": true,
+    "bytes": 112,
+    "layers": [
+      "global",
+      "project"
+    ]
+  },
+  "denied": [
+    {
+      "tool": "write",
+      "path": ".env",
+      "reason": "密钥不入库，用环境变量。可写入不含真实值的 .env.example。"
+    },
+    {
+      "tool": "edit",
+      "path": "a.pem",
+      "reason": "密钥不入库，用环境变量。可写入不含真实值的 .env.example。"
+    },
+    {
+      "tool": "bash",
+      "command": "rm -rf build/",
+      "reason": "拒绝递归强制删除。可先用 git clean -nd 预览，确认后逐个处理。"
+    },
+    {
+      "tool": "bash",
+      "command": "git push --force",
+      "reason": "拒绝强制推送。可用 git revert 创建反向提交，再正常 git push。"
+    },
+    {
+      "tool": "bash",
+      "command": "git reset --hard",
+      "reason": "拒绝硬重置。先用 git diff 核对，再按具体文件用 git restore。"
+    }
+  ],
+  "autotest": {
+    "runs": 2,
+    "red": 1,
+    "green": 1,
+    "red_to_green": 1,
+    "injected_lines": 3
+  },
+  "reviewer": {
+    "runs": 1,
+    "issues_found": 0,
+    "main_context_delta": 21,
+    "subagent_tokens": 1090,
+    "blocked_attempts": 2
+  },
+  "disabled_trial": {
+    "ENABLE_HOOKS": "0",
+    "ok": true
+  },
+  "measurement": "模型回复为受控替身。规则、工具拦截、Git diff 和本机测试实际执行。token 用同一离线分词器计算。"
+}
